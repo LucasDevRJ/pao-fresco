@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.paofresco.principal;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
@@ -103,10 +104,13 @@ public class MenuSalgado {
 	}
 	
 	public void pesquisarSalgado() {
+		entrada.nextLine();
+		
 		System.out.print("Digite o nome do salgado desejado: ");
 		String nome = entrada.nextLine();
 		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
-		Salgado salgado = salgadoDao.pesquisarSalgado(nome);
+		List<Salgado> salgados = salgadoDao.pesquisarSalgado(nome);
+		salgados.forEach(s -> System.out.println(s));
 	}
 }

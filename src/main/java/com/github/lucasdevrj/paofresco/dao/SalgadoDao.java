@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.paofresco.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.modelos.Salgado;
@@ -29,10 +31,12 @@ public class SalgadoDao {
 		this.em.remove(salgado);
 	}
 	
-	public Salgado pesquisarSalgado(String nome) {
+	public List<Salgado> pesquisarSalgado(String nome) {
 		String jpql = "SELECT s FROM Salgado s WHERE s.nome = :nome";
 		return this.em.createQuery(jpql, Salgado.class)
 				.setParameter("nome", nome)
-				.getSingleResult();
+				.getResultList();
 	}
+	
+	
 }

@@ -56,4 +56,10 @@ public class Salgado {
 	public void setPesoGramas(Double pesoGramas) {
 		this.pesoGramas = pesoGramas;
 	}
+
+	@Override
+	public String toString() {
+		return "Salgado [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
+				+ ", quantidadeQuilos=" + quantidadeQuilos + ", pesoGramas=" + pesoGramas + "]";
+	}
 }
