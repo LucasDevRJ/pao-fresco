@@ -33,7 +33,7 @@ public class MenuSalgado {
 	}
 
 	public void cadastrarSalgado() {
-		entrada.nextLine();
+		this.entrada.nextLine();
 		
 		System.out.print("Digite o nome do salgado: ");
 		String nome = entrada.nextLine();
@@ -59,6 +59,8 @@ public class MenuSalgado {
 		
 		em.getTransaction().commit();
 		em.close();
+		
+		System.out.println("Salgado cadastrado com sucesso!");
 	}
 	
 	public void atualizarSalgado() {
@@ -68,10 +70,30 @@ public class MenuSalgado {
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		Salgado salgado = salgadoDao.buscarPorId(id);
 		
+		this.entrada.nextLine();
+		
 		System.out.print("Digite o nome do salgado: ");
 		salgado.setNome(entrada.nextLine());
 		
 		System.out.print("Digite a descrição do salgado: ");
 		salgado.setDescricao(entrada.nextLine());
+		
+		System.out.print("Digite o preço unitário do salgado: ");
+		salgado.setPreco(entrada.nextBigDecimal());
+		
+		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
+		salgado.setQuantidadeQuilos(entrada.nextInt());
+		
+		System.out.print("Digite o peso unitário do salgado: ");
+		salgado.setPesoGramas(entrada.nextDouble());
+		
+		this.em.getTransaction().begin();
+		
+		salgadoDao.atualizar(salgado);
+		
+		this.em.getTransaction().commit();
+		this.em.close();
+		
+		System.out.println("Salgado atualizado com sucesso!");
 	}
 }
