@@ -17,7 +17,8 @@ public class MenuSalgado {
 	public void exibeMenu() {
 		System.out.println("--------------------|MENU SALGADO|--------------------");
 		System.out.println("1 - Cadastrar Salgado");
-		System.out.println("2 - Atualizar Salgado");
+		System.out.println("2 - Pesquisar Salgado");
+		System.out.println("3 - Atualizar Salgado");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -27,6 +28,10 @@ public class MenuSalgado {
 			break;
 			
 			case 2:
+				pesquisarSalgado();
+			break;
+			
+			case 3:
 				atualizarSalgado();
 			break;
 		}
@@ -95,5 +100,13 @@ public class MenuSalgado {
 		this.em.close();
 		
 		System.out.println("Salgado atualizado com sucesso!");
+	}
+	
+	public void pesquisarSalgado() {
+		System.out.print("Digite o nome do salgado desejado: ");
+		String nome = entrada.nextLine();
+		
+		SalgadoDao salgadoDao = new SalgadoDao(em);
+		Salgado salgado = salgadoDao.pesquisarSalgado(nome);
 	}
 }

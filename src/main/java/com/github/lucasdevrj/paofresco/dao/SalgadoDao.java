@@ -23,4 +23,16 @@ public class SalgadoDao {
 	public Salgado buscarPorId(Integer id) {
 		return this.em.find(Salgado.class, id);
 	}
+	
+	public void excluir(Salgado salgado) {
+		salgado = this.em.merge(salgado);
+		this.em.remove(salgado);
+	}
+	
+	public Salgado pesquisarSalgado(String nome) {
+		String jpql = "SELECT s FROM Salgado s WHERE s.nome = :nome";
+		return this.em.createQuery(jpql, Salgado.class)
+				.setParameter("nome", nome)
+				.getSingleResult();
+	}
 }
