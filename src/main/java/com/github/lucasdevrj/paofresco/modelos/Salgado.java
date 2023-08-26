@@ -1,7 +1,9 @@
 package com.github.lucasdevrj.paofresco.modelos;
 
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
+@Entity
 public class Salgado {
 
 	private Integer id;
