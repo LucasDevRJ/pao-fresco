@@ -2,7 +2,7 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
-public class Principal {
+public class MenuPrincipal {
 	
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
@@ -11,5 +11,10 @@ public class Principal {
 		System.out.println("2 - Menu Refrescos");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
+		
+		switch (opcao) {
+			case 1:
+				
+		}
 	}
 }
