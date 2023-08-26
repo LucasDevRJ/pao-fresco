@@ -13,8 +13,10 @@ public class MenuPrincipal {
 		int opcao = entrada.nextInt();
 		
 		switch (opcao) {
-			case 1:
-				
+				case 1:
+					MenuSalgado menuSalgado = new MenuSalgado();
+					menuSalgado.exibeMenu();
+				break;
 		}
 	}
 }

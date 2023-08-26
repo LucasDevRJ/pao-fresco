@@ -18,17 +18,18 @@ public class Salgado {
 	private String nome;
 	private String descricao;
 	private BigDecimal preco;
-	private Integer quantidade;
-	
-	public Salgado(String nome, String descricao, BigDecimal preco, Integer quantidade) {
+	private Integer quantidadeQuilos;
+	private Double pesoGramas;
+
+	public Salgado(String nome, String descricao, BigDecimal preco, Integer quantidadeQuilos, Double pesoGramas) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
-		this.quantidade = quantidade;
+		this.quantidadeQuilos = quantidadeQuilos;
+		this.pesoGramas = pesoGramas;
 	}
 
 	public Salgado() {
 		
 	}
-	
 }
