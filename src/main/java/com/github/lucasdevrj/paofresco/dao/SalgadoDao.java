@@ -15,4 +15,12 @@ public class SalgadoDao {
 	public void cadastrar(Salgado salgado) {
 		this.em.persist(salgado);
 	}
+	
+	public void atualizar(Salgado salgado) {
+		this.em.merge(salgado);
+	}
+	
+	public Salgado buscarPorId(Integer id) {
+		return this.em.find(Salgado.class, id);
+	}
 }

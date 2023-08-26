@@ -32,4 +32,28 @@ public class Salgado {
 	public Salgado() {
 		
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public void setQuantidadeQuilos(Integer quantidadeQuilos) {
+		this.quantidadeQuilos = quantidadeQuilos;
+	}
+
+	public void setPesoGramas(Double pesoGramas) {
+		this.pesoGramas = pesoGramas;
+	}
 }
