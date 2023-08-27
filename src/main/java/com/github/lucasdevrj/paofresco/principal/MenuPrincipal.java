@@ -9,7 +9,8 @@ public class MenuPrincipal {
 		System.out.println("--------------------|MENU PRINCIPAL|--------------------");
 		System.out.println("1 - Menu Salgados");
 		System.out.println("2 - Menu Refrescos");
-		System.out.println("3 - Vender");
+		System.out.println("3 - Menu Lanchonete");
+		System.out.println("4 - Vender");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -20,6 +21,11 @@ public class MenuPrincipal {
 				break;
 				
 				case 3:
+					MenuLanchonete menuLanchonete = new MenuLanchonete();
+					menuLanchonete.exibeMenu();
+				break;
+				
+				case 4:
 					MenuVenda menuVenda = new MenuVenda();
 					menuVenda.vender();
 				break;

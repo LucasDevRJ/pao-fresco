@@ -59,7 +59,7 @@ public class MenuSalgado {
 		String descricao = entrada.nextLine();
 		
 		System.out.print("Digite o preço unitário do salgado: ");
-		BigDecimal preco = entrada.nextBigDecimal();
+		Double preco = entrada.nextDouble();
 		
 		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
 		Double quantidade = entrada.nextDouble();
@@ -96,7 +96,7 @@ public class MenuSalgado {
 		salgado.setDescricao(entrada.nextLine());
 		
 		System.out.print("Digite o preço unitário do salgado: ");
-		salgado.setPreco(entrada.nextBigDecimal());
+		salgado.setPreco(entrada.nextDouble());
 		
 		System.out.print("Digite a quantidade(gramas) disponível do salgado: ");
 		salgado.setQuantidadeGramas(entrada.nextDouble());

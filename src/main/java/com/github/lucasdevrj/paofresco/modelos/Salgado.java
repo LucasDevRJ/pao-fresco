@@ -17,11 +17,11 @@ public class Salgado {
 	private Integer id;
 	private String nome;
 	private String descricao;
-	private BigDecimal preco;
+	private Double preco;
 	private Double quantidadeGramas;
 	private Double pesoGramas;
 
-	public Salgado(String nome, String descricao, BigDecimal preco, Double quantidadeGramas, Double pesoGramas) {
+	public Salgado(String nome, String descricao, Double preco, Double quantidadeGramas, Double pesoGramas) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
@@ -44,8 +44,12 @@ public class Salgado {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public Double getPreco() {
+		return preco;
+	}
 
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 	
