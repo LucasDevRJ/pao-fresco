@@ -38,5 +38,8 @@ public class SalgadoDao {
 				.getResultList();
 	}
 	
-	
+	public List<Salgado> exibirTodos() {
+		String jpql = "SELECT s FROM Salgado s";
+		return this.em.createQuery(jpql, Salgado.class).getResultList();
+	}
 }

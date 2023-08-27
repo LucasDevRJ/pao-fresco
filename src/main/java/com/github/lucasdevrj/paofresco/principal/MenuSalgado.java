@@ -19,7 +19,8 @@ public class MenuSalgado {
 		System.out.println("--------------------|MENU SALGADO|--------------------");
 		System.out.println("1 - Cadastrar Salgado");
 		System.out.println("2 - Pesquisar Salgado");
-		System.out.println("3 - Atualizar Salgado");
+		System.out.println("3 - Exibir Todos Salgados");
+		System.out.println("4 - Atualizar Salgado");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -33,12 +34,16 @@ public class MenuSalgado {
 			break;
 			
 			case 3:
+				exibirTodosSalgados();
+			break;
+			
+			case 4:
 				atualizarSalgado();
 			break;
 		}
 	}
 
-	public void cadastrarSalgado() {
+	private void cadastrarSalgado() {
 		this.entrada.nextLine();
 		
 		System.out.print("Digite o nome do salgado: ");
@@ -69,7 +74,7 @@ public class MenuSalgado {
 		System.out.println("Salgado cadastrado com sucesso!");
 	}
 	
-	public void atualizarSalgado() {
+	private void atualizarSalgado() {
 		System.out.print("Digite o ID do salgado desejado: ");
 		Integer id = entrada.nextInt();
 		
@@ -103,7 +108,7 @@ public class MenuSalgado {
 		System.out.println("Salgado atualizado com sucesso!");
 	}
 	
-	public void pesquisarSalgado() {
+	private void pesquisarSalgado() {
 		entrada.nextLine();
 		
 		System.out.print("Digite o nome do salgado desejado: ");
@@ -111,6 +116,12 @@ public class MenuSalgado {
 		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		List<Salgado> salgados = salgadoDao.pesquisarSalgado(nome);
+		salgados.forEach(s -> System.out.println(s));
+	}
+	
+	private void exibirTodosSalgados() {
+		SalgadoDao salgadoDao = new SalgadoDao(em);
+		List<Salgado> salgados = salgadoDao.exibirTodos();
 		salgados.forEach(s -> System.out.println(s));
 	}
 }

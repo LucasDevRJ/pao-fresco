@@ -59,7 +59,9 @@ public class Salgado {
 
 	@Override
 	public String toString() {
-		return "Salgado [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
-				+ ", quantidadeQuilos=" + quantidadeQuilos + ", pesoGramas=" + pesoGramas + "]";
+		return "|ID: " + this.id + "|Nome: " + this.nome + 
+		"|Descrição: " + this.descricao + "|Preço: R$" +
+		this.preco + "|Quantidade(kg): " + this.quantidadeQuilos +
+		"|Peso(gramas): " + this.pesoGramas + "|";
 	}
 }
