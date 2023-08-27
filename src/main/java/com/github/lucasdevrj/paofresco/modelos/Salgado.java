@@ -18,10 +18,10 @@ public class Salgado {
 	private String nome;
 	private String descricao;
 	private BigDecimal preco;
-	private Integer quantidadeQuilos;
+	private Double quantidadeQuilos;
 	private Double pesoGramas;
 
-	public Salgado(String nome, String descricao, BigDecimal preco, Integer quantidadeQuilos, Double pesoGramas) {
+	public Salgado(String nome, String descricao, BigDecimal preco, Double quantidadeQuilos, Double pesoGramas) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
@@ -49,7 +49,7 @@ public class Salgado {
 		this.preco = preco;
 	}
 
-	public void setQuantidadeQuilos(Integer quantidadeQuilos) {
+	public void setQuantidadeQuilos(Double quantidadeQuilos) {
 		this.quantidadeQuilos = quantidadeQuilos;
 	}
 

@@ -21,6 +21,7 @@ public class MenuSalgado {
 		System.out.println("2 - Pesquisar Salgado");
 		System.out.println("3 - Exibir Todos Salgados");
 		System.out.println("4 - Atualizar Salgado");
+		System.out.println("5 - Excluir Salgado");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -40,6 +41,10 @@ public class MenuSalgado {
 			case 4:
 				atualizarSalgado();
 			break;
+			
+			case 5:
+				excluirSalgado();
+			break;
 		}
 	}
 
@@ -56,7 +61,7 @@ public class MenuSalgado {
 		BigDecimal preco = entrada.nextBigDecimal();
 		
 		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
-		Integer quantidade = entrada.nextInt();
+		Double quantidade = entrada.nextDouble();
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
@@ -93,7 +98,7 @@ public class MenuSalgado {
 		salgado.setPreco(entrada.nextBigDecimal());
 		
 		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
-		salgado.setQuantidadeQuilos(entrada.nextInt());
+		salgado.setQuantidadeQuilos(entrada.nextDouble());
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());
@@ -123,5 +128,18 @@ public class MenuSalgado {
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		List<Salgado> salgados = salgadoDao.exibirTodos();
 		salgados.forEach(s -> System.out.println(s));
+	}
+	
+	private void excluirSalgado() {
+		System.out.print("Digite o ID do salgado desejado: ");
+		Integer id = entrada.nextInt();
+		
+		SalgadoDao salgadoDao = new SalgadoDao(em);
+		Salgado salgado = salgadoDao.buscarPorId(id);
+		this.em.getTransaction().begin();
+		salgadoDao.excluir(salgado);
+		this.em.getTransaction().commit();
+		this.em.close();
+		System.out.println("Salgado excluído com sucesso!");
 	}
 }
