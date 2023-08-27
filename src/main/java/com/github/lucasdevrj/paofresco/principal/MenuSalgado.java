@@ -46,6 +46,7 @@ public class MenuSalgado {
 				excluirSalgado();
 			break;
 		}
+		exibeMenu();
 	}
 
 	private void cadastrarSalgado() {
