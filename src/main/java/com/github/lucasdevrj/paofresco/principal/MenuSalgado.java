@@ -98,8 +98,8 @@ public class MenuSalgado {
 		System.out.print("Digite o preço unitário do salgado: ");
 		salgado.setPreco(entrada.nextBigDecimal());
 		
-		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
-		salgado.setQuantidadeQuilos(entrada.nextDouble());
+		System.out.print("Digite a quantidade(gramas) disponível do salgado: ");
+		salgado.setQuantidadeGramas(entrada.nextDouble());
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());

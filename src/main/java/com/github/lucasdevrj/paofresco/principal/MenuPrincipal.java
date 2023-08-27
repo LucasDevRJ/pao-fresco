@@ -18,6 +18,11 @@ public class MenuPrincipal {
 					MenuSalgado menuSalgado = new MenuSalgado();
 					menuSalgado.exibeMenu();
 				break;
+				
+				case 3:
+					MenuVenda menuVenda = new MenuVenda();
+					menuVenda.vender();
+				break;
 		}
 	}
 }

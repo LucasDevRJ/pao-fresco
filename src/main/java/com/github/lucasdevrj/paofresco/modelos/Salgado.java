@@ -18,14 +18,14 @@ public class Salgado {
 	private String nome;
 	private String descricao;
 	private BigDecimal preco;
-	private Double quantidadeQuilos;
+	private Double quantidadeGramas;
 	private Double pesoGramas;
 
-	public Salgado(String nome, String descricao, BigDecimal preco, Double quantidadeQuilos, Double pesoGramas) {
+	public Salgado(String nome, String descricao, BigDecimal preco, Double quantidadeGramas, Double pesoGramas) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
-		this.quantidadeQuilos = quantidadeQuilos;
+		this.quantidadeGramas = quantidadeGramas;
 		this.pesoGramas = pesoGramas;
 	}
 
@@ -48,9 +48,17 @@ public class Salgado {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
-
-	public void setQuantidadeQuilos(Double quantidadeQuilos) {
-		this.quantidadeQuilos = quantidadeQuilos;
+	
+	public Double getQuantidadeGramas() {
+		return quantidadeGramas;
+	}
+	
+	public void setQuantidadeGramas(Double quantidadeGramas) {
+		this.quantidadeGramas = quantidadeGramas;
+	}
+	
+	public Double getPesoGramas() {
+		return pesoGramas;
 	}
 
 	public void setPesoGramas(Double pesoGramas) {
@@ -61,7 +69,7 @@ public class Salgado {
 	public String toString() {
 		return "|ID: " + this.id + "|Nome: " + this.nome + 
 		"|Descrição: " + this.descricao + "|Preço: R$" +
-		this.preco + "|Quantidade(kg): " + this.quantidadeQuilos +
+		this.preco + "|Quantidade(kg): " + this.quantidadeGramas +
 		"|Peso(gramas): " + this.pesoGramas + "|";
 	}
 }
