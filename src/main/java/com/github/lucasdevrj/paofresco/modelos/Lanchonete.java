@@ -15,8 +15,8 @@ public class Lanchonete {
 	private Integer id;
 	private String nome = "Pão Fresco";
 	private String endereco;
-	private Double custo;
-	private Double receita = 0.0;
+	private Double custo = 0.0;
+	private Double receita = 1000.0;
 	
 	public Lanchonete(String endereco) {
 		this.endereco = endereco;

@@ -1,7 +1,7 @@
 package com.github.lucasdevrj.paofresco.modelos;
 
-public class Mercado {
+public class Ingrediente {
 
 	private String nome;
-	
+	private Double quantidadeGramas;
 }

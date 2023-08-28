@@ -1,7 +1,5 @@
 package com.github.lucasdevrj.paofresco.modelos;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +18,7 @@ public class Salgado {
 	private Double preco;
 	private Double quantidadeGramas;
 	private Double pesoGramas;
-
+	
 	public Salgado(String nome, String descricao, Double preco, Double quantidadeGramas, Double pesoGramas) {
 		this.nome = nome;
 		this.descricao = descricao;
