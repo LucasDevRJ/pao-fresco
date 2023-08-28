@@ -2,6 +2,8 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
+import com.github.lucasdevrj.paofresco.modelos.Mercado;
+
 public class MenuPrincipal {
 	
 	public static void main(String[] args) {
@@ -10,7 +12,8 @@ public class MenuPrincipal {
 		System.out.println("1 - Menu Salgados");
 		System.out.println("2 - Menu Refrescos");
 		System.out.println("3 - Menu Lanchonete");
-		System.out.println("4 - Vender");
+		System.out.println("4 - Menu Mercado");
+		System.out.println("5 - Vender");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -26,6 +29,11 @@ public class MenuPrincipal {
 				break;
 				
 				case 4:
+					Mercado mercado = new Mercado();
+					mercado.comprar();
+				break;
+				
+				case 5:
 					MenuVenda menuVenda = new MenuVenda();
 					menuVenda.vender();
 				break;

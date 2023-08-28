@@ -12,12 +12,15 @@ public class Ingrediente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String nome;
 	private Double quantidadeGramas;
+	private Double preco;
 	
-	public Ingrediente(String nome, Double quantidadeGramas) {
+	public Ingrediente(String nome, Double quantidadeGramas, Double preco) {
 		this.nome = nome;
 		this.quantidadeGramas = quantidadeGramas;
+		this.preco = preco;
 	}
 	
 	public Ingrediente() {
