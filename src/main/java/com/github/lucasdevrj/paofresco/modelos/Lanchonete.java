@@ -15,6 +15,7 @@ public class Lanchonete {
 	private Integer id;
 	private String nome = "Pão Fresco";
 	private String endereco;
+	private Double custo;
 	private Double receita = 0.0;
 	
 	public Lanchonete(String endereco) {
