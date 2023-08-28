@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.paofresco.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.modelos.Lanchonete;
@@ -27,5 +29,10 @@ private EntityManager em;
 	public void excluir(Lanchonete lanchonete) {
 		lanchonete = this.em.merge(lanchonete);
 		this.em.remove(lanchonete);
+	}
+	
+	public List<Lanchonete> exibirTodas() {
+		String jpql = "SELECT l FROM Lanchonete l";
+		return this.em.createQuery(jpql, Lanchonete.class).getResultList();
 	}
 }
