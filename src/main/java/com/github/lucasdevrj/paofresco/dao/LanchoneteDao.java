@@ -19,4 +19,8 @@ private EntityManager em;
 	public Lanchonete buscarPorId(Integer id) {
 		return this.em.find(Lanchonete.class, id);
 	}
+	
+	public void atualizar(Lanchonete lanchonete) {
+		this.em.merge(lanchonete);
+	}
 }
