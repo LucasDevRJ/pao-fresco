@@ -23,4 +23,9 @@ private EntityManager em;
 	public void atualizar(Lanchonete lanchonete) {
 		this.em.merge(lanchonete);
 	}
+	
+	public void excluir(Lanchonete lanchonete) {
+		lanchonete = this.em.merge(lanchonete);
+		this.em.remove(lanchonete);
+	}
 }
