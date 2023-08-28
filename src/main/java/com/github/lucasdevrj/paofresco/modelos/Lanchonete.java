@@ -15,11 +15,11 @@ public class Lanchonete {
 	private Integer id;
 	private String nome = "Pão Fresco";
 	private String endereco;
-	private Double custo = 0.0;
-	private Double receita = 1000.0;
+	private Double receita;
 	
-	public Lanchonete(String endereco) {
+	public Lanchonete(String endereco, Double receita) {
 		this.endereco = endereco;
+		this.receita = receita;
 	}
 
 	public Lanchonete() {

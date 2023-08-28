@@ -37,7 +37,10 @@ public class MenuLanchonete {
 		System.out.print("Digite o endereço da lanchonete: ");
 		String endereco = entrada.nextLine();
 		
-		Lanchonete lanchonete = new Lanchonete(endereco);
+		System.out.print("Digite a receita inicial da lanchonete: ");
+		Double receita = entrada.nextDouble();
+		
+		Lanchonete lanchonete = new Lanchonete(endereco, receita);
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		
 		this.em.getTransaction().begin();
