@@ -23,4 +23,8 @@ public class MercadoDao {
 	public void atualizar(Mercado mercado) {
 		this.em.merge(mercado);
 	}
+	
+	public void excluir(Mercado mercado) {
+		this.em.remove(mercado);
+	}
 }
