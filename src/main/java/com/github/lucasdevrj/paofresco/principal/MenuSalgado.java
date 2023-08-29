@@ -13,7 +13,6 @@ import com.github.lucasdevrj.paofresco.util.JPAUtil;
 public class MenuSalgado {
 	
 	private Scanner entrada = new Scanner(System.in);
-	private EntityManager em = JPAUtil.getEntityManager();
 	
 	public void exibeMenu() {
 		System.out.println("--------------------|MENU SALGADO|--------------------");
@@ -67,9 +66,11 @@ public class MenuSalgado {
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
 		
+		EntityManager em = JPAUtil.getEntityManager();
+		
 		Salgado salgado = new Salgado(nome, descricao, preco, quantidade, peso);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
-		
+
 		em.getTransaction().begin();
 		
 		salgadoDao.cadastrar(salgado);
@@ -83,6 +84,8 @@ public class MenuSalgado {
 	private void atualizarSalgado() {
 		System.out.print("Digite o ID do salgado desejado: ");
 		Integer id = entrada.nextInt();
+		
+		EntityManager em = JPAUtil.getEntityManager();
 		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		Salgado salgado = salgadoDao.buscarPorId(id);
@@ -104,12 +107,12 @@ public class MenuSalgado {
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());
 		
-		this.em.getTransaction().begin();
+		em.getTransaction().begin();
 		
 		salgadoDao.atualizar(salgado);
 		
-		this.em.getTransaction().commit();
-		this.em.close();
+		em.getTransaction().commit();
+		em.close();
 		
 		System.out.println("Salgado atualizado com sucesso!");
 	}
@@ -120,12 +123,16 @@ public class MenuSalgado {
 		System.out.print("Digite o nome do salgado desejado: ");
 		String nome = entrada.nextLine();
 		
+		EntityManager em = JPAUtil.getEntityManager();
+		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		List<Salgado> salgados = salgadoDao.pesquisarSalgado(nome);
 		salgados.forEach(s -> System.out.println(s));
 	}
 	
 	private void exibirTodosSalgados() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		List<Salgado> salgados = salgadoDao.exibirTodos();
 		salgados.forEach(s -> System.out.println(s));
@@ -135,12 +142,14 @@ public class MenuSalgado {
 		System.out.print("Digite o ID do salgado desejado: ");
 		Integer id = entrada.nextInt();
 		
+		EntityManager em = JPAUtil.getEntityManager();
+		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		Salgado salgado = salgadoDao.buscarPorId(id);
-		this.em.getTransaction().begin();
+		em.getTransaction().begin();
 		salgadoDao.excluir(salgado);
-		this.em.getTransaction().commit();
-		this.em.close();
+		em.getTransaction().commit();
+		em.close();
 		System.out.println("Salgado excluído com sucesso!");
 	}
 }

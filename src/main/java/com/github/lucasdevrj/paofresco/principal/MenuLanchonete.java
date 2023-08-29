@@ -40,8 +40,27 @@ public class MenuLanchonete {
 			case 4:
 				atualizarLanchonete();
 			break;
+			
+			case 5:
+				excluirLanchonete();
+			break;
 		}
 		exibeMenu();
+	}
+
+	private void excluirLanchonete() {
+		System.out.print("Digite o ID da lanchonete: ");
+		int id = entrada.nextInt();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		
+		em.getTransaction().begin();
+		lanchoneteDao.excluir(lanchonete);
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println("Lanchonete excluída com sucesso!");
 	}
 
 	private void atualizarLanchonete() {
@@ -57,6 +76,11 @@ public class MenuLanchonete {
 		String endereco = entrada.nextLine();
 		
 		lanchonete.setEndereco(endereco);
+		
+		em.getTransaction().begin();
+		lanchoneteDao.atualizar(lanchonete);
+		em.getTransaction().commit();
+		em.close();
 		
 		System.out.println("Lanchonete atualizada com sucesso!");
 	}
@@ -91,10 +115,10 @@ public class MenuLanchonete {
 		Lanchonete lanchonete = new Lanchonete(endereco, receita);
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		
-		this.em.getTransaction().begin();
+		em.getTransaction().begin();
 		lanchoneteDao.cadastrar(lanchonete);
-		this.em.getTransaction().commit();
-		this.em.close();
+		em.getTransaction().commit();
+		em.close();
 		
 		System.out.println("Lanchonete cadastrada com sucesso!");
 	}

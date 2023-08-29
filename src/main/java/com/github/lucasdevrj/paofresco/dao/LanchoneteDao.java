@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.modelos.Lanchonete;
+import com.github.lucasdevrj.paofresco.modelos.Salgado;
 
 public class LanchoneteDao {
 
