@@ -16,6 +16,10 @@ public class MercadoDao {
 		this.em.persist(mercado);
 	}
 	
+	public Mercado buscarPorId(Integer id) {
+		return this.em.find(Mercado.class, id);
+	}
+	
 	public void atualizar(Mercado mercado) {
 		this.em.merge(mercado);
 	}
