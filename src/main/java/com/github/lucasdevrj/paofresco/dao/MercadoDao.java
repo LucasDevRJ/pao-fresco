@@ -15,4 +15,8 @@ public class MercadoDao {
 	public void cadastrar(Mercado mercado) {
 		this.em.persist(mercado);
 	}
+	
+	public void atualizar(Mercado mercado) {
+		this.em.merge(mercado);
+	}
 }
