@@ -27,8 +27,24 @@ public class MenuLanchonete {
 			case 1:
 				cadastrarLanchonete();
 			break;
+			
+			case 2:
+				pesquisarLanchonete();
+			break;
 		}
 		exibeMenu();
+	}
+
+	private void pesquisarLanchonete() {
+		this.entrada.nextLine();
+		
+		System.out.print("Digite o ID da lanchonete: ");
+		int id = entrada.nextInt();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		
+		System.out.println(lanchonete);
 	}
 
 	private void cadastrarLanchonete() {

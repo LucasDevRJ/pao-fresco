@@ -33,4 +33,10 @@ public class Lanchonete {
 	public void setReceita(Double receita) {
 		this.receita = receita;
 	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + this.nome +
+		"|Endereço: " + this.endereco + "|Receita: " + this.receita;
+	}
 }
