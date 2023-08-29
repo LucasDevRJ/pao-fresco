@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.paofresco.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.modelos.Mercado;
@@ -26,5 +28,10 @@ public class MercadoDao {
 	
 	public void excluir(Mercado mercado) {
 		this.em.remove(mercado);
+	}
+	
+	public List<Mercado> exibirTodos() {
+		String jpql = "SELECT m FROM Mercado m";
+		return this.em.createQuery(jpql, Mercado.class).getResultList();
 	}
 }
