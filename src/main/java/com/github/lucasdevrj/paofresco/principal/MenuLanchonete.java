@@ -1,6 +1,5 @@
 package com.github.lucasdevrj.paofresco.principal;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,13 +34,34 @@ public class MenuLanchonete {
 			break;
 			
 			case 3:
-				exibirTodas();
+				exibirTodasLanchonetes();
+			break;
+			
+			case 4:
+				atualizarLanchonete();
 			break;
 		}
 		exibeMenu();
 	}
 
-	private void exibirTodas() {
+	private void atualizarLanchonete() {
+		System.out.print("Digite o ID da lanchonete: ");
+		int id = entrada.nextInt();
+		
+		entrada.nextLine();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		
+		System.out.print("Digite o endereço da lanchonete: ");
+		String endereco = entrada.nextLine();
+		
+		lanchonete.setEndereco(endereco);
+		
+		System.out.println("Lanchonete atualizada com sucesso!");
+	}
+
+	private void exibirTodasLanchonetes() {
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodas();
 		lanchonetes.forEach(l -> System.out.println(l));

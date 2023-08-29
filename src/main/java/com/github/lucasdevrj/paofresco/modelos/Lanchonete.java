@@ -21,6 +21,10 @@ public class Lanchonete {
 		this.endereco = endereco;
 		this.receita = receita;
 	}
+	
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
 	public Lanchonete() {
 		
