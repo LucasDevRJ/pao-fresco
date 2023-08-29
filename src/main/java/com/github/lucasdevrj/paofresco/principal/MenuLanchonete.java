@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
@@ -31,8 +33,18 @@ public class MenuLanchonete {
 			case 2:
 				pesquisarLanchonete();
 			break;
+			
+			case 3:
+				exibirTodas();
+			break;
 		}
 		exibeMenu();
+	}
+
+	private void exibirTodas() {
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodas();
+		lanchonetes.forEach(l -> System.out.println(l));
 	}
 
 	private void pesquisarLanchonete() {
