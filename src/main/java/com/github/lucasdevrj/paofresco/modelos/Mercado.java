@@ -12,6 +12,7 @@ import com.github.lucasdevrj.paofresco.util.JPAUtil;
 public class Mercado {
 
 	private String nome;
+	private String endereco;
 	
 	public void comprar() {
 		EntityManager em = JPAUtil.getEntityManager();
