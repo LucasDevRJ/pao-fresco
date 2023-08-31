@@ -1,4 +1,4 @@
-package com.github.lucasdevrj.paofresco.modelos;
+package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class MenuRefresco {
 		
 		switch (opcao) {
 			case 1:
-				
+				cadastrarRefresco();
 			break;
 			
 			case 2:
@@ -38,6 +38,10 @@ public class MenuRefresco {
 			break;
 		}
 		exibeMenu();
+	}
+
+	private void cadastrarRefresco() {
+		
 	}
 
 }

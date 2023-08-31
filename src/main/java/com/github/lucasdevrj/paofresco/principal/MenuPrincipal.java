@@ -2,7 +2,6 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
-import com.github.lucasdevrj.paofresco.modelos.MenuRefresco;
 import com.github.lucasdevrj.paofresco.modelos.Mercado;
 
 public class MenuPrincipal {
