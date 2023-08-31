@@ -26,6 +26,10 @@ public abstract class Alimento {
 	public Alimento() {
 		
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
 	public String getNome() {
 		return nome;
