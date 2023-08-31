@@ -17,6 +17,16 @@ public abstract class Alimento {
 	private String descricao;
 	private Double preco;
 	
+	public Alimento(String nome, String descricao, Double preco) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+	
+	public Alimento() {
+		
+	}
+
 	public String getNome() {
 		return nome;
 	}
