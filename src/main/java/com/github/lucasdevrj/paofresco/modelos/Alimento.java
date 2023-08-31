@@ -1,5 +1,8 @@
 package com.github.lucasdevrj.paofresco.modelos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +18,13 @@ public abstract class Alimento {
 	private Integer id;
 	private String nome;
 	private String descricao;
+	private List<Ingrediente> ingredientes = new ArrayList<>();
 	private Double preco;
 	
-	public Alimento(String nome, String descricao, Double preco) {
+	public Alimento(String nome, List<Ingrediente> ingredientes, String descricao, Double preco) {
 		this.nome = nome;
 		this.descricao = descricao;
+		this.ingredientes = ingredientes;
 		this.preco = preco;
 	}
 	
@@ -47,11 +52,26 @@ public abstract class Alimento {
 		this.descricao = descricao;
 	}
 	
+	public void setIngredientes(List<Ingrediente> ingredientes) {
+		this.ingredientes = ingredientes;
+	}
+	
+	public List<Ingrediente> getIngredientes() {
+		return ingredientes;
+	}
+	
 	public Double getPreco() {
 		return preco;
 	}
 	
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + this.nome + "|Descrição: " +
+		this.descricao + "|Ingredientes: " + this.ingredientes + "|Preço: " + 
+		this.preco;
 	}
 }
