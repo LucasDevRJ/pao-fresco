@@ -10,16 +10,27 @@ import javax.persistence.Table;
 public class Refresco extends Alimento {
 
 	private Double mililitros;
-	private Double preco;
-	
-	public Refresco(String nome, List<Ingrediente> ingredientes, String descricao, Double preco, Double mililitros,
-			Double preco2) {
+
+	public Refresco(String nome, List<Ingrediente> ingredientes, String descricao, Double preco, Double mililitros) {
 		super(nome, ingredientes, descricao, preco);
 		this.mililitros = mililitros;
-		preco = preco2;
 	}
 	
 	public Refresco() {
 		
 	}
+
+	public Double getMililitros() {
+		return mililitros;
+	}
+
+	public void setMililitros(Double mililitros) {
+		this.mililitros = mililitros;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "|Mililitros: " + this.mililitros;
+	}
+	
 }
