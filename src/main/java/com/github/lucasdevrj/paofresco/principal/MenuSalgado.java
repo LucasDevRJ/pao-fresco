@@ -1,6 +1,5 @@
 package com.github.lucasdevrj.paofresco.principal;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 

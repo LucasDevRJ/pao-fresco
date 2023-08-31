@@ -2,6 +2,7 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
+import com.github.lucasdevrj.paofresco.modelos.MenuRefresco;
 import com.github.lucasdevrj.paofresco.modelos.Mercado;
 
 public class MenuPrincipal {
@@ -21,6 +22,10 @@ public class MenuPrincipal {
 				case 1:
 					MenuSalgado menuSalgado = new MenuSalgado();
 					menuSalgado.exibeMenu();
+				break;
+				
+				case 2:
+					MenuRefresco menuRefresco = new MenuRefresco();
 				break;
 				
 				case 3:
