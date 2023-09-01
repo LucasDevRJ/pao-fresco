@@ -1,11 +1,13 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.dao.SalgadoDao;
+import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
 import com.github.lucasdevrj.paofresco.modelos.Salgado;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
@@ -59,8 +61,9 @@ public class MenuSalgado {
 		System.out.print("Digite o preço unitário do salgado: ");
 		Double preco = entrada.nextDouble();
 		
-		System.out.print("Digite a quantidade(kg) disponível do salgado: ");
-		Double quantidade = entrada.nextDouble();
+		System.out.print("Digite o ingrediente utilizado: ");
+		
+		
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();

@@ -30,7 +30,7 @@ public class Refresco extends Alimento {
 	
 	@Override
 	public String toString() {
-		return super.toString() + "|Mililitros: " + this.mililitros;
+		return super.toString() + "|Mililitros(quantidade): " + this.mililitros;
 	}
 	
 }
