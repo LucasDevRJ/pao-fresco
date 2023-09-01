@@ -27,4 +27,9 @@ public class Salgado extends Alimento {
 	public Double getPesoGramas() {
 		return pesoGramas;
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "| Peso(gramas): " + this.pesoGramas;
+	}
 }
