@@ -2,6 +2,12 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
+import javax.persistence.EntityManager;
+
+import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
+import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
+import com.github.lucasdevrj.paofresco.util.JPAUtil;
+
 public class MenuIngrediente {
 	
 	private Scanner entrada = new Scanner(System.in);
@@ -18,7 +24,7 @@ public class MenuIngrediente {
 		
 		switch (opcao) {
 			case 1:
-				
+				cadastrarIngrediente();
 			break;
 			
 			case 2:
@@ -38,5 +44,28 @@ public class MenuIngrediente {
 			break;
 		}
 		exibeMenu();
+	}
+
+	private void cadastrarIngrediente() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o nome do ingrediente: ");
+		String nome = entrada.nextLine();
+		
+		System.out.print("Digite a quantidade(gramas) do ingrediente: ");
+		Double quantidade = entrada.nextDouble();
+		
+		System.out.print("Digite o preço do ingrediente: ");
+		Double preco = entrada.nextDouble();
+		
+		Ingrediente ingrediente = new Ingrediente(nome, quantidade, preco);
+		IngredienteDao ingredienteDao = new IngredienteDao(em);
+		
+		em.getTransaction().begin();
+		ingredienteDao.cadastrar(ingrediente);
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println("Ingrediente cadastrado com sucessso!");
 	}
 }
