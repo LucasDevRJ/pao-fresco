@@ -19,4 +19,12 @@ public class Salgado extends Alimento {
 	public Salgado() {
 		
 	}
+	
+	public void setPesoGramas(Double pesoGramas) {
+		this.pesoGramas = pesoGramas;
+	}
+	
+	public Double getPesoGramas() {
+		return pesoGramas;
+	}
 }
