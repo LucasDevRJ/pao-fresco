@@ -42,6 +42,11 @@ public class MenuPrincipal {
 					MenuVenda menuVenda = new MenuVenda();
 					menuVenda.vender();
 				break;
+				
+				case 6:
+					MenuLanchonete lanchonete = new MenuLanchonete();
+					lanchonete.exibeMenu();
+				break;
 		}
 	}
 }
