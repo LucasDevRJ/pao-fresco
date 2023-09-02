@@ -29,7 +29,8 @@ public class MenuPrincipal {
 				break;
 				
 				case 3:
-					
+					MenuIngrediente menuIngrediente = new MenuIngrediente();
+					menuIngrediente.exibeMenu();
 				break;
 				
 				case 4:

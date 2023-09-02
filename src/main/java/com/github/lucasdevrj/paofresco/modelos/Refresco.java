@@ -11,11 +11,13 @@ public class Refresco extends Alimento {
 
 	private Double mililitros;
 
-	public Refresco(String nome, List<Ingrediente> ingredientes, String descricao, Double preco, Double mililitros) {
-		super(nome, ingredientes, descricao, preco);
+	
+	
+	public Refresco(String nome, String descricao, List<Ingrediente> ingredientes, Double preco, Double mililitros) {
+		super(nome, descricao, ingredientes, preco);
 		this.mililitros = mililitros;
 	}
-	
+
 	public Refresco() {
 		
 	}

@@ -60,17 +60,15 @@ public class MenuSalgado {
 		
 		System.out.print("Digite o preço unitário do salgado: ");
 		Double preco = entrada.nextDouble();
-		
-		System.out.print("Digite o ingrediente utilizado: ");
-		
-		
+
+		//System.out.print("Digite o ingrediente utilizado: ");
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		Salgado salgado = new Salgado(nome, descricao, preco, quantidade, peso);
+		Salgado salgado = new Salgado(nome, descricao, null, preco, peso);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 
 		em.getTransaction().begin();
@@ -104,7 +102,7 @@ public class MenuSalgado {
 		salgado.setPreco(entrada.nextDouble());
 		
 		System.out.print("Digite a quantidade(gramas) disponível do salgado: ");
-		salgado.setQuantidadeGramas(entrada.nextDouble());
+		//salgado.setQuantidadeGramas(entrada.nextDouble());
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());

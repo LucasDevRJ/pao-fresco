@@ -3,12 +3,15 @@ package com.github.lucasdevrj.paofresco.modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,16 +24,18 @@ public abstract class Alimento {
 	private Integer id;
 	private String nome;
 	private String descricao;
+	
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Ingrediente> ingredientes = new ArrayList<>();
 	private Double preco;
 	
-	public Alimento(String nome, List<Ingrediente> ingredientes, String descricao, Double preco) {
+	public Alimento(String nome, String descricao, List<Ingrediente> ingredientes, Double preco) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.ingredientes = ingredientes;
 		this.preco = preco;
 	}
-	
+
 	public Alimento() {
 		
 	}
@@ -55,14 +60,6 @@ public abstract class Alimento {
 		this.descricao = descricao;
 	}
 	
-	public void setIngredientes(List<Ingrediente> ingredientes) {
-		this.ingredientes = ingredientes;
-	}
-	
-	public List<Ingrediente> getIngredientes() {
-		return ingredientes;
-	}
-	
 	public Double getPreco() {
 		return preco;
 	}
@@ -74,7 +71,7 @@ public abstract class Alimento {
 	@Override
 	public String toString() {
 		return "ID: " + this.id + "|Nome: " + this.nome + "|Descrição: " +
-		this.descricao + "|Ingredientes: " + this.ingredientes + "|Preço: " + 
+		this.descricao + "|Preço: " + 
 		this.preco;
 	}
 }

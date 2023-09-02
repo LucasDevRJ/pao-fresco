@@ -10,12 +10,12 @@ import javax.persistence.Table;
 public class Salgado extends Alimento {
 
 	private Double pesoGramas;
-
-	public Salgado(String nome, List<Ingrediente> ingredientes, String descricao, Double preco, Double pesoGramas) {
-		super(nome, ingredientes, descricao, preco);
+	
+	public Salgado(String nome, String descricao, List<Ingrediente> ingredientes, Double preco, Double pesoGramas) {
+		super(nome, descricao, ingredientes, preco);
 		this.pesoGramas = pesoGramas;
 	}
-	
+
 	public Salgado() {
 		
 	}

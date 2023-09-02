@@ -1,11 +1,14 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
+import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
 import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
+import com.github.lucasdevrj.paofresco.modelos.Salgado;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuIngrediente {
@@ -14,21 +17,20 @@ public class MenuIngrediente {
 
 	public void exibeMenu() {
 		System.out.println("--------------------|MENU SALGADO|--------------------");
-		System.out.println("1 - Cadastrar Ingrediente");
-		System.out.println("2 - Pesquisar Ingrediente");
-		System.out.println("3 - Exibir Todos Ingredientes");
-		System.out.println("4 - Atualizar Ingrediente");
-		System.out.println("5 - Excluir Ingrediente");
+		System.out.println("1 - Pesquisar Ingrediente");
+		System.out.println("2 - Exibir Todos Ingredientes");
+		System.out.println("3 - Atualizar Ingrediente");
+		System.out.println("4 - Excluir Ingrediente");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
 		switch (opcao) {
 			case 1:
-				cadastrarIngrediente();
+				
 			break;
 			
 			case 2:
-				
+				exibirTodosIngredientes();
 			break;
 			
 			case 3:
@@ -46,26 +48,13 @@ public class MenuIngrediente {
 		exibeMenu();
 	}
 
-	private void cadastrarIngrediente() {
+	private void exibirTodosIngredientes() {
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		System.out.print("Digite o nome do ingrediente: ");
-		String nome = entrada.nextLine();
-		
-		System.out.print("Digite a quantidade(gramas) do ingrediente: ");
-		Double quantidade = entrada.nextDouble();
-		
-		System.out.print("Digite o preço do ingrediente: ");
-		Double preco = entrada.nextDouble();
-		
-		Ingrediente ingrediente = new Ingrediente(nome, quantidade, preco);
 		IngredienteDao ingredienteDao = new IngredienteDao(em);
-		
-		em.getTransaction().begin();
-		ingredienteDao.cadastrar(ingrediente);
-		em.getTransaction().commit();
-		em.close();
-		
-		System.out.println("Ingrediente cadastrado com sucessso!");
+		List<Ingrediente> ingredientes = ingredienteDao.exibirTodos();
+		ingredientes.forEach(e -> System.out.println(e));
 	}
+
+	
 }

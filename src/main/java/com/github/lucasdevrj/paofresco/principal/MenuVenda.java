@@ -32,7 +32,7 @@ public class MenuVenda {
 		
 		double quantidadeGramasSalgadoDesejados = salgado.getPesoGramas() * quantidade;
 		double valorTotalVendido = salgado.getPreco() * quantidade;
-		salgado.setQuantidadeGramas(salgado.getQuantidadeGramas() - quantidadeGramasSalgadoDesejados);
+		//salgado.setQuantidadeGramas(salgado.getQuantidadeGramas() - quantidadeGramasSalgadoDesejados);
 		
 		lanchonete.setReceita(lanchonete.getReceita() + valorTotalVendido);
 		

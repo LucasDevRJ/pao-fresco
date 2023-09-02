@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +17,9 @@ public class Ingrediente {
 	private String nome;
 	private Double quantidadeGramas;
 	private Double preco;
+	
+	@ManyToOne
+	private Alimento alimento;
 	
 	public Ingrediente(String nome, Double quantidadeGramas, Double preco) {
 		this.nome = nome;
