@@ -9,12 +9,7 @@ public class MenuPrincipal {
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("--------------------|MENU PRINCIPAL|--------------------");
-		System.out.println("1 - Menu Salgados");
-		System.out.println("2 - Menu Refrescos");
-		System.out.println("3 - Menu Ingredientes");
-		System.out.println("4 - Menu Lanchonete");
-		System.out.println("5 - Menu Mercado");
-		System.out.println("6 - Vender");
+		System.out.println("Menu Lanchonete");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
