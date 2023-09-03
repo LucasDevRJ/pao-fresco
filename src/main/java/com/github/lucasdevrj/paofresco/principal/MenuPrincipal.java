@@ -2,8 +2,6 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
-import com.github.lucasdevrj.paofresco.modelos.Mercado;
-
 public class MenuPrincipal {
 	
 	public static void main(String[] args) {
@@ -24,13 +22,11 @@ public class MenuPrincipal {
 				break;
 				
 				case 3:
-					MenuIngrediente menuIngrediente = new MenuIngrediente();
-					menuIngrediente.exibeMenu();
+					
 				break;
 				
 				case 4:
-					Mercado mercado = new Mercado();
-					mercado.comprar();
+					
 				break;
 				
 				case 5:
@@ -39,8 +35,7 @@ public class MenuPrincipal {
 				break;
 				
 				case 6:
-					MenuLanchonete lanchonete = new MenuLanchonete();
-					lanchonete.exibeMenu();
+					
 				break;
 		}
 	}

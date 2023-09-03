@@ -24,6 +24,10 @@ public class Refresco {
 		this.preco = preco;
 		this.pesoGramas = pesoGramas;
 	}
+	
+	public Refresco() {
+		
+	}
 
 	public String getNome() {
 		return nome;

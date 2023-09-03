@@ -3,9 +3,6 @@ package com.github.lucasdevrj.paofresco.principal;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
-
-import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
-import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuRefresco {
@@ -60,11 +57,7 @@ public class MenuRefresco {
 		System.out.print("Digite o preço do ingrediente: ");
 		Double preco = entrada.nextDouble();
 		
-		Ingrediente ingrediente = new Ingrediente(nome, gramas, preco);
-		IngredienteDao ingredienteDao = new IngredienteDao(em);
-		
 		em.getTransaction().begin();
-		ingredienteDao.cadastrar(ingrediente);
 		em.getTransaction().commit();
 		em.close();
 		

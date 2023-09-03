@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
-import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
 import com.github.lucasdevrj.paofresco.dao.SalgadoDao;
-import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
 import com.github.lucasdevrj.paofresco.modelos.Salgado;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
@@ -64,26 +62,10 @@ public class MenuSalgado {
 		System.out.print("Digite o preço unitário do salgado: ");
 		Double preco = entrada.nextDouble();
 		
-		List<Ingrediente> ingredientes = new ArrayList<>();
-		IngredienteDao ingredienteDao = new IngredienteDao(em);
-		ingredientes = ingredienteDao.exibirTodos();
-		ingredientes.forEach(i -> System.out.println(i));
-		String resposta;
-		do {
-			System.out.print("Digite o ingrediente utilizado: ");
-			int idIngrediente = entrada.nextInt();
-			Ingrediente ingrediente = ingredienteDao.buscarPorId(idIngrediente);
-			ingredientes.add(ingrediente);
-			
-			System.out.print("Deseja adicionar outro ingrediente?\ns ou n: ");
-			resposta = entrada.next();
-			System.out.println(resposta);
-		} while (resposta.equals("s"));
-		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
 
-		Salgado salgado = new Salgado(nome, descricao, ingredientes, preco, peso);
+		Salgado salgado = new Salgado(nome, descricao, preco, peso);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 
 		em.getTransaction().begin();
@@ -117,7 +99,7 @@ public class MenuSalgado {
 		salgado.setPreco(entrada.nextDouble());
 		
 		System.out.print("Digite a quantidade(gramas) disponível do salgado: ");
-		//salgado.setQuantidadeGramas(entrada.nextDouble());
+		salgado.setPesoGramas(entrada.nextDouble());
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());
