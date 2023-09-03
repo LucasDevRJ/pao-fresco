@@ -1,6 +1,5 @@
 package com.github.lucasdevrj.paofresco.principal;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
