@@ -30,4 +30,11 @@ public class Ingrediente {
 	public Ingrediente() {
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + this.nome + 
+		"|Quantidade(gramas): " + this.quantidadeGramas +
+		"|Preço: " + this.preco;
+	}
 }

@@ -7,12 +7,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "refrescos")
-public class Refresco extends Alimento {
+public class Refresco {
 
 	private Double mililitros;
 
-	
-	
 	public Refresco(String nome, String descricao, List<Ingrediente> ingredientes, Double preco, Double mililitros) {
 		super(nome, descricao, ingredientes, preco);
 		this.mililitros = mililitros;

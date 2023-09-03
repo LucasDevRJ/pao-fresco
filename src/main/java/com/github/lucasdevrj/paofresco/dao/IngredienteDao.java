@@ -23,8 +23,8 @@ public class IngredienteDao {
 		this.em.merge(ingrediente);
 	}
 	
-	public Salgado buscarPorId(Integer id) {
-		return this.em.find(Salgado.class, id);
+	public Ingrediente buscarPorId(Integer id) {
+		return this.em.find(Ingrediente.class, id);
 	}
 	
 	public void excluir(Ingrediente ingrediente) {

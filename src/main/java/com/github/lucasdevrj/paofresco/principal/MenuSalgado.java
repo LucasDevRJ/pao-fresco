@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
+import com.github.lucasdevrj.paofresco.dao.IngredienteDao;
 import com.github.lucasdevrj.paofresco.dao.SalgadoDao;
 import com.github.lucasdevrj.paofresco.modelos.Ingrediente;
 import com.github.lucasdevrj.paofresco.modelos.Salgado;
@@ -52,6 +53,8 @@ public class MenuSalgado {
 	private void cadastrarSalgado() {
 		this.entrada.nextLine();
 		
+		EntityManager em = JPAUtil.getEntityManager();
+		
 		System.out.print("Digite o nome do salgado: ");
 		String nome = entrada.nextLine();
 		
@@ -60,15 +63,27 @@ public class MenuSalgado {
 		
 		System.out.print("Digite o preço unitário do salgado: ");
 		Double preco = entrada.nextDouble();
-
-		//System.out.print("Digite o ingrediente utilizado: ");
+		
+		List<Ingrediente> ingredientes = new ArrayList<>();
+		IngredienteDao ingredienteDao = new IngredienteDao(em);
+		ingredientes = ingredienteDao.exibirTodos();
+		ingredientes.forEach(i -> System.out.println(i));
+		String resposta;
+		do {
+			System.out.print("Digite o ingrediente utilizado: ");
+			int idIngrediente = entrada.nextInt();
+			Ingrediente ingrediente = ingredienteDao.buscarPorId(idIngrediente);
+			ingredientes.add(ingrediente);
+			
+			System.out.print("Deseja adicionar outro ingrediente?\ns ou n: ");
+			resposta = entrada.next();
+			System.out.println(resposta);
+		} while (resposta.equals("s"));
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
-		
-		EntityManager em = JPAUtil.getEntityManager();
-		
-		Salgado salgado = new Salgado(nome, descricao, null, preco, peso);
+
+		Salgado salgado = new Salgado(nome, descricao, ingredientes, preco, peso);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 
 		em.getTransaction().begin();
