@@ -38,4 +38,10 @@ public class RefrescoDao {
 		.setParameter("nome", nome)
 		.getResultList();
 	}
+	
+	public List<Refresco> exibirTodos() {
+		String jpql = "SELECT r FROM Refresco r";
+		return this.em.createQuery(jpql, Refresco.class)
+		.getResultList();
+	}
 }
