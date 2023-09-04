@@ -15,4 +15,12 @@ public class Lanchonete {
 	private Integer id;
 	private String nome = "Pão Fresco";
 	private String endereco;
+	
+	public Lanchonete(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	public Lanchonete() {
+		
+	}
 }
