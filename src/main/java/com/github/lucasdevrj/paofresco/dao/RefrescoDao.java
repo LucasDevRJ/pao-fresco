@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.paofresco.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.modelos.Refresco;
@@ -28,5 +30,12 @@ public class RefrescoDao {
 	public void excluir(Refresco refresco) {
 		refresco = this.em.merge(refresco);
 		this.em.remove(refresco);
+	}
+	
+	public List<Refresco> pesquisarRefresco(String nome) {
+		String jpql = "SELECT r FROM Refresco r WHERE r.nome = :nome";
+		return this.em.createQuery(jpql, Refresco.class)
+		.setParameter("nome", nome)
+		.getResultList();
 	}
 }
