@@ -2,6 +2,7 @@ package com.github.lucasdevrj.paofresco.dao;
 
 import javax.persistence.EntityManager;
 
+import com.github.lucasdevrj.paofresco.modelos.Refresco;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class RefrescoDao {
@@ -12,5 +13,7 @@ public class RefrescoDao {
 		this.em = em;
 	}
 	
-	
+	public void adicionar(Refresco refresco) {
+		this.em.persist(refresco);
+	}
 }
