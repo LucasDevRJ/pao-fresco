@@ -20,4 +20,13 @@ public class RefrescoDao {
 	public void buscarPorId(Integer id) {
 		this.em.find(Refresco.class, id);
 	}
+	
+	public void atualizar(Refresco refresco) {
+		this.em.merge(refresco);
+	}
+	
+	public void excluir(Refresco refresco) {
+		refresco = this.em.merge(refresco);
+		this.em.remove(refresco);
+	}
 }
