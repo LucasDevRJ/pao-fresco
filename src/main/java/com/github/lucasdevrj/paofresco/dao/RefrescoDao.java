@@ -16,4 +16,8 @@ public class RefrescoDao {
 	public void adicionar(Refresco refresco) {
 		this.em.persist(refresco);
 	}
+	
+	public void buscarPorId(Integer id) {
+		this.em.find(Refresco.class, id);
+	}
 }
