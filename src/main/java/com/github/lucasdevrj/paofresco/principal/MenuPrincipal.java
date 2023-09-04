@@ -12,9 +12,9 @@ public class MenuPrincipal {
 	
 	private static void exibeMenu() {
 		System.out.println("--------------------|MENU PRINCIPAL|--------------------");
-		System.out.println("1 - Menu Salgado");
-		System.out.println("2 - Menu Refresco");
-		System.out.println("3 - Vender");
+		System.out.println("1 - Menu Lanchonete");
+		System.out.println("2 - Menu Salgado");
+		System.out.println("3 - Menu Refresco");
 		System.out.println("4 - Sair");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
