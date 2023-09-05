@@ -1,5 +1,6 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
@@ -31,7 +32,7 @@ private static Scanner entrada = new Scanner(System.in);
 			break;
 			
 			case 2:
-				
+				exibirTodasLanchonetes();
 			break;
 			
 			case 3:
@@ -42,6 +43,13 @@ private static Scanner entrada = new Scanner(System.in);
 				
 			break;
 		}
+	}
+
+	private static void exibirTodasLanchonetes() {
+		EntityManager em = JPAUtil.getEntityManager();
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodos();
+		lanchonetes.forEach(l -> System.out.println(l));
 	}
 
 	private static void cadastrarLanchonete() {

@@ -33,8 +33,8 @@ public class LanchoneteDao {
 		this.em.remove(lanchonete);
 	}
 	
-	public List<Salgado> exibirTodos() {
+	public List<Lanchonete> exibirTodos() {
 		String jpql = "SELECT l FROM Lanchonete l";
-		return this.em.createQuery(jpql, Salgado.class).getResultList();
+		return this.em.createQuery(jpql, Lanchonete.class).getResultList();
 	}
 }
