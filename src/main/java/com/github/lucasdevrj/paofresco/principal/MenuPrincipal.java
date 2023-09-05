@@ -21,8 +21,7 @@ public class MenuPrincipal {
 		
 		switch (opcao) {
 			case 1:
-				MenuSalgado menuSalgado = new MenuSalgado();
-				menuSalgado.exibeMenu();
+				
 			break;
 			
 			case 2:
