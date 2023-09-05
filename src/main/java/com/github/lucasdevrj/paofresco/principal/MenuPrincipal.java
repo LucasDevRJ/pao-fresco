@@ -10,7 +10,7 @@ public class MenuPrincipal {
 		exibeMenu();
 	}
 	
-	private static void exibeMenu() {
+	public static void exibeMenu() {
 		System.out.println("--------------------|MENU PRINCIPAL|--------------------");
 		System.out.println("1 - Menu Lanchonete");
 		System.out.println("2 - Menu Salgado");
@@ -21,7 +21,8 @@ public class MenuPrincipal {
 		
 		switch (opcao) {
 			case 1:
-				
+				MenuLanchonete menuLanchonete = new MenuLanchonete();
+				menuLanchonete.exibeMenu();
 			break;
 			
 			case 2:

@@ -11,13 +11,9 @@ import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuLanchonete {
 
-private static Scanner entrada = new Scanner(System.in);
+	private static Scanner entrada = new Scanner(System.in);
 	
-	public static void main(String[] args) {
-		exibeMenu();
-	}
-	
-	private static void exibeMenu() {
+	public void exibeMenu() {
 		System.out.println("1 - Cadastrar Lanchonete");
 		System.out.println("2 - Exibir Todas Lanchonetes");
 		System.out.println("3 - Atualizar Lanchonete");
@@ -41,6 +37,10 @@ private static Scanner entrada = new Scanner(System.in);
 			
 			case 4:
 				excluirLanchonete();
+			break;
+			
+			case 5:
+				MenuPrincipal.exibeMenu();
 			break;
 		}
 	}
@@ -85,6 +85,8 @@ private static Scanner entrada = new Scanner(System.in);
 	}
 
 	private static void cadastrarLanchonete() {
+		entrada.nextLine();
+		
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		System.out.print("Digite o endereço da lanchonete: ");
