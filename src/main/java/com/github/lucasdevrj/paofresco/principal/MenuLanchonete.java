@@ -40,9 +40,26 @@ private static Scanner entrada = new Scanner(System.in);
 			break;
 			
 			case 4:
-				
+				excluirLanchonete();
 			break;
 		}
+	}
+
+	private static void excluirLanchonete() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o ID da lanchonete desejada: ");
+		int id = entrada.nextInt();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		
+		em.getTransaction().begin();
+		lanchoneteDao.excluir(lanchonete);
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println("Lanchonete excluída com sucesso!");
 	}
 
 	private static void atualizarLanchonete() {
