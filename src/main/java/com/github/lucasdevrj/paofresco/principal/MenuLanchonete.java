@@ -36,13 +36,28 @@ private static Scanner entrada = new Scanner(System.in);
 			break;
 			
 			case 3:
-				
+				atualizarLanchonete();
 			break;
 			
 			case 4:
 				
 			break;
 		}
+	}
+
+	private static void atualizarLanchonete() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o ID da lanchonete desejada: ");
+		int id = entrada.nextInt();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		
+		System.out.print("Digite o novo endereço da lanchonete: ");
+		lanchonete.setEndereco(entrada.nextLine());
+		
+		System.out.println("Lanchonete atualizada com sucesso!");
 	}
 
 	private static void exibirTodasLanchonetes() {
