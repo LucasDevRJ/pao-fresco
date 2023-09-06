@@ -33,7 +33,7 @@ public class MenuRefresco {
 			break;
 			
 			case 3:
-				
+				exibirTodosRefrescos();
 			break;
 			
 			case 4:
@@ -44,6 +44,16 @@ public class MenuRefresco {
 				
 			break;
 		}
+	}
+
+	private void exibirTodosRefrescos() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		List<Refresco> refrescos = refrescoDao.exibirTodos();
+		refrescos.forEach(r -> System.out.println(r));
+		
+		exibeMenu();
 	}
 
 	private void pesquisarRefresco() {
