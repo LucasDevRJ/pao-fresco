@@ -63,20 +63,28 @@ public class MenuRefresco {
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		System.out.print("Digite o nome do ingrediente: ");
+		System.out.print("Digite o nome do refresco: ");
 		String nome = entrada.nextLine();
 		
-		System.out.print("Digite a quantidade(gramas) do ingrediente: ");
-		Double gramas = entrada.nextDouble();
+		System.out.print("Digite a descrição do refresco: ");
+		String descricao = entrada.nextLine();
 		
-		System.out.print("Digite o preço do ingrediente: ");
+		System.out.print("Digite o preço do refresco: ");
 		Double preco = entrada.nextDouble();
 		
+		System.out.print("Digite a quantidade(mililitros) do refresco: ");
+		Double mililitros = entrada.nextDouble();
+		
+		Refresco refresco = new Refresco(nome, descricao, preco, mililitros);
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		
 		em.getTransaction().begin();
+		refrescoDao.adicionar(refresco);
 		em.getTransaction().commit();
 		em.close();
 		
 		System.out.println("Ingrediente cadastrado com sucesso!");
+		exibeMenu();
 	}
 
 }
