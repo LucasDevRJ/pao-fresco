@@ -39,4 +39,10 @@ public class Lanchonete {
 	public Integer getId() {
 		return id;
 	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + 
+		this.nome + "|Endereço: " + this.endereco;
+	}
 }
