@@ -13,7 +13,7 @@ public class MenuLanchonete {
 
 	private static Scanner entrada = new Scanner(System.in);
 	
-	public void exibeMenu() {
+	public static void exibeMenu() {
 		System.out.println("1 - Cadastrar Lanchonete");
 		System.out.println("2 - Exibir Todas Lanchonetes");
 		System.out.println("3 - Atualizar Lanchonete");
@@ -60,6 +60,7 @@ public class MenuLanchonete {
 		em.close();
 		
 		System.out.println("Lanchonete excluída com sucesso!");
+		exibeMenu();
 	}
 
 	private static void atualizarLanchonete() {
@@ -68,13 +69,21 @@ public class MenuLanchonete {
 		System.out.print("Digite o ID da lanchonete desejada: ");
 		int id = entrada.nextInt();
 		
+		entrada.nextLine();
+		
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
 		
 		System.out.print("Digite o novo endereço da lanchonete: ");
 		lanchonete.setEndereco(entrada.nextLine());
 		
+		em.getTransaction().begin();
+		em.merge(lanchonete);
+		em.getTransaction().commit();
+		em.close();
+		
 		System.out.println("Lanchonete atualizada com sucesso!");
+		exibeMenu();
 	}
 
 	private static void exibirTodasLanchonetes() {
@@ -82,6 +91,7 @@ public class MenuLanchonete {
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodos();
 		lanchonetes.forEach(l -> System.out.println(l));
+		exibeMenu();
 	}
 
 	private static void cadastrarLanchonete() {
@@ -101,5 +111,6 @@ public class MenuLanchonete {
 		em.close();
 		
 		System.out.println("Lanchonete cadastrada com sucesso!");
+		exibeMenu();
 	}
 }
