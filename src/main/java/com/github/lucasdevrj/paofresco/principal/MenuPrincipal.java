@@ -21,17 +21,18 @@ public class MenuPrincipal {
 		
 		switch (opcao) {
 			case 1:
-				MenuLanchonete.exibeMenu();
+				MenuLanchonete menuLanchonete = new MenuLanchonete();
+				menuLanchonete.exibeMenu();
 			break;
 			
 			case 2:
-				MenuRefresco menuRefresco = new MenuRefresco();
-				menuRefresco.exibeMenu();
+				MenuSalgado menuSalgado = new MenuSalgado();
+				menuSalgado.exibeMenu();
 			break;
 			
 			case 3:
-				MenuVenda menuVenda = new MenuVenda();
-				menuVenda.vender();
+				MenuRefresco menuRefresco = new MenuRefresco();
+				menuRefresco.exibeMenu(); 
 			break;
 			
 			case 4:

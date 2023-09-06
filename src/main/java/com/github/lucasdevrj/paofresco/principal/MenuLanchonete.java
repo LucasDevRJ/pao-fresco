@@ -13,7 +13,7 @@ public class MenuLanchonete {
 
 	private static Scanner entrada = new Scanner(System.in);
 	
-	public static void exibeMenu() {
+	public void exibeMenu() {
 		System.out.println("1 - Cadastrar Lanchonete");
 		System.out.println("2 - Exibir Todas Lanchonetes");
 		System.out.println("3 - Atualizar Lanchonete");
@@ -45,7 +45,7 @@ public class MenuLanchonete {
 		}
 	}
 
-	private static void excluirLanchonete() {
+	private void excluirLanchonete() {
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		System.out.print("Digite o ID da lanchonete desejada: ");
@@ -63,7 +63,7 @@ public class MenuLanchonete {
 		exibeMenu();
 	}
 
-	private static void atualizarLanchonete() {
+	private void atualizarLanchonete() {
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		System.out.print("Digite o ID da lanchonete desejada: ");
@@ -86,7 +86,7 @@ public class MenuLanchonete {
 		exibeMenu();
 	}
 
-	private static void exibirTodasLanchonetes() {
+	private void exibirTodasLanchonetes() {
 		EntityManager em = JPAUtil.getEntityManager();
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodos();
@@ -94,7 +94,7 @@ public class MenuLanchonete {
 		exibeMenu();
 	}
 
-	private static void cadastrarLanchonete() {
+	private void cadastrarLanchonete() {
 		entrada.nextLine();
 		
 		EntityManager em = JPAUtil.getEntityManager();

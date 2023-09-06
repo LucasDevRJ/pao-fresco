@@ -44,7 +44,6 @@ public class MenuRefresco {
 				
 			break;
 		}
-		exibeMenu();
 	}
 
 	private void pesquisarRefresco() {
