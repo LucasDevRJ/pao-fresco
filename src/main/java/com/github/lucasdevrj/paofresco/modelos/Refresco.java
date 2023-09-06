@@ -16,52 +16,16 @@ public class Refresco {
 	private String nome;
 	private String descricao;
 	private Double preco;
-	private Double pesoGramas;
+	private Double mililitros;
 	
-	public Refresco(String nome, String descricao, Double preco, Double pesoGramas) {
+	public Refresco(String nome, String descricao, Double preco, Double mililitros) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
-		this.pesoGramas = pesoGramas;
+		this.mililitros = mililitros;
 	}
 	
 	public Refresco() {
 		
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public Double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
-
-	public Double getPesoGramas() {
-		return pesoGramas;
-	}
-
-	public void setPesoGramas(Double pesoGramas) {
-		this.pesoGramas = pesoGramas;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 }
