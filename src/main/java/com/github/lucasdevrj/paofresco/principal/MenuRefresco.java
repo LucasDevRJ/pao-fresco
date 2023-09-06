@@ -41,9 +41,28 @@ public class MenuRefresco {
 			break;
 			
 			case 5:
-				
+				excluirRefresco();
 			break;
 		}
+	}
+
+	private void excluirRefresco() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o ID do refresco desejado: ");
+		int id = entrada.nextInt();
+		
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		Refresco refresco = refrescoDao.buscarPorId(id);
+		
+		em.getTransaction().begin();
+		refrescoDao.excluir(refresco);
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println("Refresco excluído com sucesso!");
+		
+		exibeMenu();
 	}
 
 	private void atualizarRefresco() {
