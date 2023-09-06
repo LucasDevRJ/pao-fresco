@@ -37,13 +37,46 @@ public class MenuRefresco {
 			break;
 			
 			case 4:
-				
+				atualizarRefresco();
 			break;
 			
 			case 5:
 				
 			break;
 		}
+	}
+
+	private void atualizarRefresco() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o ID do refresco: ");
+		int id = entrada.nextInt();
+		
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		Refresco refresco = refrescoDao.buscarPorId(id);
+		
+		entrada.nextLine();
+		
+		System.out.print("Digite o novo nome do refresco: ");
+		refresco.setNome(entrada.nextLine());
+		
+		System.out.print("Digite a nova descrição do refresco: ");
+		refresco.setDescricao(entrada.nextLine());
+		
+		System.out.print("Digite o novo preço do refresco: ");
+		refresco.setPreco(entrada.nextDouble());
+		
+		System.out.print("Digite a nova quantidade(mililitros) do refresco: ");
+		refresco.setMililitros(entrada.nextDouble());
+		
+		em.getTransaction().begin();
+		refrescoDao.atualizar(refresco);
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println("Refresco atualizado com sucesso!");
+		
+		exibeMenu();
 	}
 
 	private void exibirTodosRefrescos() {
