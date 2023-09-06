@@ -64,4 +64,11 @@ public class Refresco {
 	public Integer getId() {
 		return id;
 	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + this.nome +
+		"|Descrição: " + this.descricao + "|Preço: " +
+		this.preco + "|Mililitros: " + this.mililitros;
+	}
 }
