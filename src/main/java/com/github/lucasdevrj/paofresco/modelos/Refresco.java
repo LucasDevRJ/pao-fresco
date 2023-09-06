@@ -28,4 +28,40 @@ public class Refresco {
 	public Refresco() {
 		
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public Double getMililitros() {
+		return mililitros;
+	}
+
+	public void setMililitros(Double mililitros) {
+		this.mililitros = mililitros;
+	}
+
+	public Integer getId() {
+		return id;
+	}
 }
