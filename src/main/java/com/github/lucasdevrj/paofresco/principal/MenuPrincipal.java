@@ -21,8 +21,7 @@ public class MenuPrincipal {
 		
 		switch (opcao) {
 			case 1:
-				MenuLanchonete menuLanchonete = new MenuLanchonete();
-				menuLanchonete.exibeMenu();
+				MenuLanchonete.exibeMenu();
 			break;
 			
 			case 2:

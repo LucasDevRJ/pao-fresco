@@ -1,8 +1,12 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
+
+import com.github.lucasdevrj.paofresco.dao.RefrescoDao;
+import com.github.lucasdevrj.paofresco.modelos.Refresco;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuRefresco {
@@ -25,7 +29,7 @@ public class MenuRefresco {
 			break;
 			
 			case 2:
-				
+				pesquisarRefresco();
 			break;
 			
 			case 3:
@@ -40,6 +44,18 @@ public class MenuRefresco {
 				
 			break;
 		}
+		exibeMenu();
+	}
+
+	private void pesquisarRefresco() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		System.out.print("Digite o refresco desejado: ");
+		String nome = entrada.nextLine();
+		
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		List<Refresco> refrescos = refrescoDao.pesquisarRefresco(nome);
+		refrescos.forEach(r -> System.out.println(r));
 		exibeMenu();
 	}
 
