@@ -15,7 +15,8 @@ public class MenuPrincipal {
 		System.out.println("1 - Menu Lanchonete");
 		System.out.println("2 - Menu Salgado");
 		System.out.println("3 - Menu Refresco");
-		System.out.println("4 - Sair");
+		System.out.println("4 - Vender");
+		System.out.println("5 - Sair");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -36,7 +37,7 @@ public class MenuPrincipal {
 			break;
 			
 			case 4:
-				finalizarPrograma();
+				MenuVendas menuVendas = new MenuVendas();
 			break;
 		}
 	}
