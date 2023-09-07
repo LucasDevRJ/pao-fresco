@@ -53,8 +53,16 @@ private static Scanner entrada = new Scanner(System.in);
 		System.out.print("Digite o ID do salgado desejado pelo cliente: ");
 		int idSalgado = entrada.nextInt();
 		
+		System.out.print("Digite a quantidade desejada: ");
+		int quantidade = entrada.nextInt();
+		
 		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
+		salgado.setQuantidade(salgado.getQuantidade() - quantidade);
 		
-		
+		em.getTransaction().begin();
+		salgadoDao.atualizar(salgado);
+		lanchoneteDao.atualizar(lanchonete);
+		em.getTransaction().commit();
+		em.close();
 	}
 }
