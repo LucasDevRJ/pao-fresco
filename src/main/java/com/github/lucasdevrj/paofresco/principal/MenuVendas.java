@@ -2,6 +2,12 @@ package com.github.lucasdevrj.paofresco.principal;
 
 import java.util.Scanner;
 
+import javax.persistence.EntityManager;
+
+import com.github.lucasdevrj.paofresco.dao.LanchoneteDao;
+import com.github.lucasdevrj.paofresco.modelos.Lanchonete;
+import com.github.lucasdevrj.paofresco.util.JPAUtil;
+
 public class MenuVendas {
 	
 private static Scanner entrada = new Scanner(System.in);
@@ -19,12 +25,24 @@ private static Scanner entrada = new Scanner(System.in);
 		
 		switch (opcao) {
 			case 1:
-				
+				vender();
 			break;
 			
 			case 2:
 				
 			break;
 		}
+	}
+
+	private static void vender() {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
+		lanchoneteDao.exibirTodos();
+		
+		System.out.print("Digite o ID da lanchonete que você trabalha: ");
+		int id = entrada.nextInt();
+		
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
 	}
 }
