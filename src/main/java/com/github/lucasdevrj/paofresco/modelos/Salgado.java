@@ -17,16 +17,14 @@ public class Salgado {
 	private String descricao;
 	private Double preco;
 	private Double pesoGramas;
+	private Integer quantidade;
 	
-	public Salgado(String nome, String descricao, Double preco, Double pesoGramas) {
+	public Salgado(String nome, String descricao, Double preco, Double pesoGramas, Integer quantidade) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.pesoGramas = pesoGramas;
-	}
-
-	public Salgado() {
-		
+		this.quantidade = quantidade;
 	}
 
 	public String getNome() {
@@ -61,7 +59,22 @@ public class Salgado {
 		this.pesoGramas = pesoGramas;
 	}
 
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	public Integer getId() {
 		return id;
+	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + "|Nome: " + this.descricao + 
+		"|Preço: " + this.preco + "|Peso(gramas): " + this.pesoGramas +
+		"|Quantidade: " + this.quantidade;
 	}
 }
