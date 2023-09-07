@@ -5,7 +5,9 @@ import java.util.Scanner;
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.dao.LanchoneteDao;
+import com.github.lucasdevrj.paofresco.dao.SalgadoDao;
 import com.github.lucasdevrj.paofresco.modelos.Lanchonete;
+import com.github.lucasdevrj.paofresco.modelos.Salgado;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuVendas {
@@ -41,8 +43,18 @@ private static Scanner entrada = new Scanner(System.in);
 		lanchoneteDao.exibirTodos();
 		
 		System.out.print("Digite o ID da lanchonete que você trabalha: ");
-		int id = entrada.nextInt();
+		int idLanchonete = entrada.nextInt();
 		
-		Lanchonete lanchonete = lanchoneteDao.buscarPorId(id);
+		Lanchonete lanchonete = lanchoneteDao.buscarPorId(idLanchonete);
+		
+		SalgadoDao salgadoDao = new SalgadoDao(em);
+		salgadoDao.exibirTodos();
+		
+		System.out.print("Digite o ID do salgado desejado pelo cliente: ");
+		int idSalgado = entrada.nextInt();
+		
+		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
+		
+		
 	}
 }
