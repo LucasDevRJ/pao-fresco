@@ -17,8 +17,9 @@ public class Lanchonete {
 	private String endereco;
 	private Double receita;
 	
-	public Lanchonete(String endereco) {
+	public Lanchonete(String endereco, Double receita) {
 		this.endereco = endereco;
+		this.receita = receita;
 	}
 	
 	public Lanchonete() {

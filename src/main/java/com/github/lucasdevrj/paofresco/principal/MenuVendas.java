@@ -61,6 +61,8 @@ private static Scanner entrada = new Scanner(System.in);
 		
 		System.out.println(salgado.getQuantidade());
 		
+		lanchonete.setReceita(lanchonete.getReceita() + precoTotal);
+		System.out.println(lanchonete.getReceita());
 		em.getTransaction().begin();
 		salgadoDao.atualizar(salgado);
 		lanchoneteDao.atualizar(lanchonete);

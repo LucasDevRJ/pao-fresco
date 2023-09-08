@@ -77,6 +77,9 @@ public class MenuLanchonete {
 		System.out.print("Digite o novo endereço da lanchonete: ");
 		lanchonete.setEndereco(entrada.nextLine());
 		
+		System.out.print("Digite a receita inicial da lanchonete: ");
+		lanchonete.setReceita(entrada.nextDouble());
+		
 		em.getTransaction().begin();
 		em.merge(lanchonete);
 		em.getTransaction().commit();
@@ -102,7 +105,10 @@ public class MenuLanchonete {
 		System.out.print("Digite o endereço da lanchonete: ");
 		String endereco = entrada.nextLine();
 		
-		Lanchonete lanchonete = new Lanchonete(endereco);
+		System.out.print("Digite a receita inicial da lanchonete: ");
+		Double receita = entrada.nextDouble();
+		
+		Lanchonete lanchonete = new Lanchonete(endereco, receita);
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		
 		em.getTransaction().begin();
