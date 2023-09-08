@@ -26,6 +26,10 @@ public class Salgado {
 		this.pesoGramas = pesoGramas;
 		this.quantidade = quantidade;
 	}
+	
+	public Salgado() {
+		
+	}
 
 	public String getNome() {
 		return nome;

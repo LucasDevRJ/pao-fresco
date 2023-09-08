@@ -63,8 +63,11 @@ public class MenuSalgado {
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		Double peso = entrada.nextDouble();
+		
+		System.out.print("Digite a quantidade do salgado: ");
+		Integer quantidade = entrada.nextInt();
 
-		Salgado salgado = new Salgado(nome, descricao, preco, peso);
+		Salgado salgado = new Salgado(nome, descricao, preco, peso, quantidade);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 
 		em.getTransaction().begin();
@@ -102,6 +105,9 @@ public class MenuSalgado {
 		
 		System.out.print("Digite o peso unitário do salgado: ");
 		salgado.setPesoGramas(entrada.nextDouble());
+		
+		System.out.print("Digite a quantidade do salgado: ");
+		salgado.setQuantidade(entrada.nextInt());
 		
 		em.getTransaction().begin();
 		

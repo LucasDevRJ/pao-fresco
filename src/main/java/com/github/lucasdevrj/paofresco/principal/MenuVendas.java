@@ -1,5 +1,6 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
@@ -40,7 +41,8 @@ private static Scanner entrada = new Scanner(System.in);
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
-		lanchoneteDao.exibirTodos();
+		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodos();
+		lanchonetes.forEach(l -> System.out.println(l));
 		
 		System.out.print("Digite o ID da lanchonete que você trabalha: ");
 		int idLanchonete = entrada.nextInt();
@@ -48,7 +50,8 @@ private static Scanner entrada = new Scanner(System.in);
 		Lanchonete lanchonete = lanchoneteDao.buscarPorId(idLanchonete);
 		
 		SalgadoDao salgadoDao = new SalgadoDao(em);
-		salgadoDao.exibirTodos();
+		List<Salgado> salgados = salgadoDao.exibirTodos();
+		salgados.forEach(s -> System.out.println(s));
 		
 		System.out.print("Digite o ID do salgado desejado pelo cliente: ");
 		int idSalgado = entrada.nextInt();
@@ -58,6 +61,8 @@ private static Scanner entrada = new Scanner(System.in);
 		
 		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
 		salgado.setQuantidade(salgado.getQuantidade() - quantidade);
+		
+		System.out.println(salgado.getQuantidade());
 		
 		em.getTransaction().begin();
 		salgadoDao.atualizar(salgado);
