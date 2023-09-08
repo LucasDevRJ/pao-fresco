@@ -15,10 +15,6 @@ public class MenuVendas {
 	
 private static Scanner entrada = new Scanner(System.in);
 	
-	public static void main(String[] args) {
-		exibeMenu();
-	}
-	
 	public static void exibeMenu() {
 		System.out.println("--------------------|MENU VENDAS|--------------------");
 		System.out.println("1 - Vender");
@@ -61,6 +57,7 @@ private static Scanner entrada = new Scanner(System.in);
 		
 		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
 		salgado.setQuantidade(salgado.getQuantidade() - quantidade);
+		double precoTotal = salgado.getPreco() * quantidade;
 		
 		System.out.println(salgado.getQuantidade());
 		

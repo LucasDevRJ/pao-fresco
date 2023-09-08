@@ -15,6 +15,7 @@ public class Lanchonete {
 	private Integer id;
 	private String nome = "Pão Fresco";
 	private String endereco;
+	private Double receita;
 	
 	public Lanchonete(String endereco) {
 		this.endereco = endereco;
@@ -38,6 +39,14 @@ public class Lanchonete {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public Double getReceita() {
+		return receita;
+	}
+	
+	public void setReceita(Double receita) {
+		this.receita = receita;
 	}
 	
 	@Override

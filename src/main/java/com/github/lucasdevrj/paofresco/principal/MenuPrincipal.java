@@ -38,6 +38,7 @@ public class MenuPrincipal {
 			
 			case 4:
 				MenuVendas menuVendas = new MenuVendas();
+				menuVendas.exibeMenu();
 			break;
 		}
 	}
