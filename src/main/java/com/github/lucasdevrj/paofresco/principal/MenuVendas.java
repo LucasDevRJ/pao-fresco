@@ -55,7 +55,13 @@ private static Scanner entrada = new Scanner(System.in);
 		int idSalgado = entrada.nextInt();
 		
 		System.out.print("Digite a quantidade desejada: ");
-		int quantidade = entrada.nextInt();
+		int quantidadeSalgado = entrada.nextInt();
+		
+		double precoTotal = 0.0;
+		
+		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
+		salgado.setQuantidade(salgado.getQuantidade() - quantidadeSalgado);
+		precoTotal += salgado.getPreco() * quantidadeSalgado;
 		
 		RefrescoDao refrescoDao = new RefrescoDao(em);
 		List<Refresco> refrescos = refrescoDao.exibirTodos();
@@ -64,16 +70,18 @@ private static Scanner entrada = new Scanner(System.in);
 		System.out.print("Digite o ID do refresco desejado pelo cliente: ");
 		int idRefresco = entrada.nextInt();
 		
-		Refresco refresco = refrescoDao.buscarPorId(idRefresco);
-		refresco.setQuantidade(refresco.getQuantidade() - quantidade);
-		double precoTotal = salgado.getPreco() * quantidade;
+		System.out.print("Digite a quantidade desejada: ");
+		int quantidadeRefresco = entrada.nextInt();
 		
-		System.out.println(salgado.getQuantidade());
+		Refresco refresco = refrescoDao.buscarPorId(idRefresco);
+		refresco.setQuantidade(refresco.getQuantidade() - quantidadeRefresco);
+		precoTotal += salgado.getPreco() * quantidadeRefresco;
 		
 		lanchonete.setReceita(lanchonete.getReceita() + precoTotal);
 		System.out.println(lanchonete.getReceita());
 		em.getTransaction().begin();
 		salgadoDao.atualizar(salgado);
+		refrescoDao.atualizar(refresco);
 		lanchoneteDao.atualizar(lanchonete);
 		em.getTransaction().commit();
 		em.close();
