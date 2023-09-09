@@ -17,6 +17,7 @@ public class Refresco {
 	private String descricao;
 	private Double preco;
 	private Double mililitros;
+	private Integer quantidade;
 	
 	public Refresco(String nome, String descricao, Double preco, Double mililitros) {
 		this.nome = nome;
@@ -65,10 +66,19 @@ public class Refresco {
 		return id;
 	}
 	
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 	@Override
 	public String toString() {
 		return "ID: " + this.id + "|Nome: " + this.nome +
 		"|Descrição: " + this.descricao + "|Preço: " +
-		this.preco + "|Mililitros: " + this.mililitros;
+		this.preco + "|Mililitros: " + this.mililitros +
+		"|Quantidade: " + this.quantidade;
 	}
 }

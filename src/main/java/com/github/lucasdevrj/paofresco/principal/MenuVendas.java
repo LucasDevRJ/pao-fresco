@@ -6,8 +6,10 @@ import java.util.Scanner;
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.paofresco.dao.LanchoneteDao;
+import com.github.lucasdevrj.paofresco.dao.RefrescoDao;
 import com.github.lucasdevrj.paofresco.dao.SalgadoDao;
 import com.github.lucasdevrj.paofresco.modelos.Lanchonete;
+import com.github.lucasdevrj.paofresco.modelos.Refresco;
 import com.github.lucasdevrj.paofresco.modelos.Salgado;
 import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
@@ -55,8 +57,15 @@ private static Scanner entrada = new Scanner(System.in);
 		System.out.print("Digite a quantidade desejada: ");
 		int quantidade = entrada.nextInt();
 		
-		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
-		salgado.setQuantidade(salgado.getQuantidade() - quantidade);
+		RefrescoDao refrescoDao = new RefrescoDao(em);
+		List<Refresco> refrescos = refrescoDao.exibirTodos();
+		refrescos.forEach(r -> System.out.println(r));
+		
+		System.out.print("Digite o ID do refresco desejado pelo cliente: ");
+		int idRefresco = entrada.nextInt();
+		
+		Refresco refresco = refrescoDao.buscarPorId(idRefresco);
+		refresco.setQuantidade(refresco.getQuantidade() - quantidade);
 		double precoTotal = salgado.getPreco() * quantidade;
 		
 		System.out.println(salgado.getQuantidade());
@@ -68,5 +77,7 @@ private static Scanner entrada = new Scanner(System.in);
 		lanchoneteDao.atualizar(lanchonete);
 		em.getTransaction().commit();
 		em.close();
+		
+		System.out.println("Vendido(s) com Sucesso!");
 	}
 }
