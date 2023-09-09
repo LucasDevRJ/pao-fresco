@@ -20,6 +20,7 @@ public class MenuRefresco {
 		System.out.println("3 - Exibir Todos Refresco");
 		System.out.println("4 - Atualizar Refresco");
 		System.out.println("5 - Excluir Refresco");
+		System.out.println("6 - Voltar");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -42,6 +43,10 @@ public class MenuRefresco {
 			
 			case 5:
 				excluirRefresco();
+			break;
+			
+			case 6:
+				MenuPrincipal.exibeMenu();
 			break;
 		}
 	}

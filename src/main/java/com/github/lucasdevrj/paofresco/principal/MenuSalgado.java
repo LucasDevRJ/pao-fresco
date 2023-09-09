@@ -20,6 +20,7 @@ public class MenuSalgado {
 		System.out.println("3 - Exibir Todos Salgados");
 		System.out.println("4 - Atualizar Salgado");
 		System.out.println("5 - Excluir Salgado");
+		System.out.println("6 - Voltar");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
@@ -42,6 +43,10 @@ public class MenuSalgado {
 			
 			case 5:
 				excluirSalgado();
+			break;
+			
+			case 6:
+				MenuPrincipal.exibeMenu();
 			break;
 		}
 		exibeMenu();

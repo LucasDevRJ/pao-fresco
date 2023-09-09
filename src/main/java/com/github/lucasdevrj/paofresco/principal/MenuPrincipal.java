@@ -40,6 +40,10 @@ public class MenuPrincipal {
 				MenuVendas menuVendas = new MenuVendas();
 				menuVendas.exibeMenu();
 			break;
+			
+			case 5:
+				finalizarPrograma();
+			break;
 		}
 	}
 
