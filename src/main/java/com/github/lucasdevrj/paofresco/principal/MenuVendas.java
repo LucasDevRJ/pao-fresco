@@ -1,5 +1,6 @@
 package com.github.lucasdevrj.paofresco.principal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import com.github.lucasdevrj.paofresco.util.JPAUtil;
 
 public class MenuVendas {
 	
-private static Scanner entrada = new Scanner(System.in);
+	private static Scanner entrada = new Scanner(System.in);
 	
 	public static void exibeMenu() {
 		System.out.println("--------------------|MENU VENDAS|--------------------");
@@ -50,18 +51,27 @@ private static Scanner entrada = new Scanner(System.in);
 		SalgadoDao salgadoDao = new SalgadoDao(em);
 		List<Salgado> salgados = salgadoDao.exibirTodos();
 		salgados.forEach(s -> System.out.println(s));
-		
-		System.out.print("Digite o ID do salgado desejado pelo cliente: ");
-		int idSalgado = entrada.nextInt();
-		
-		System.out.print("Digite a quantidade desejada: ");
-		int quantidadeSalgado = entrada.nextInt();
-		
 		double precoTotal = 0.0;
-		
-		Salgado salgado = salgadoDao.buscarPorId(idSalgado);
-		salgado.setQuantidade(salgado.getQuantidade() - quantidadeSalgado);
-		precoTotal += salgado.getPreco() * quantidadeSalgado;
+		String resposta;
+		Salgado salgado;
+		do {
+			System.out.print("Digite o ID do salgado desejado pelo cliente: ");
+			int idSalgado = entrada.nextInt();
+			
+			System.out.print("Digite a quantidade desejada: ");
+			int quantidadeSalgado = entrada.nextInt();
+			
+			salgado = salgadoDao.buscarPorId(idSalgado);
+			
+			List<Salgado> salgadosEscolhidos = new ArrayList<>();
+			salgadosEscolhidos.add(salgado);
+			
+			salgado.setQuantidade(salgado.getQuantidade() - quantidadeSalgado);
+			precoTotal += salgado.getPreco() * quantidadeSalgado;
+			
+			System.out.println("Deseja comprar outro salgado?\ns ou n");
+			resposta = entrada.next();
+		} while (resposta.equals("s"));
 		
 		RefrescoDao refrescoDao = new RefrescoDao(em);
 		List<Refresco> refrescos = refrescoDao.exibirTodos();
@@ -74,8 +84,12 @@ private static Scanner entrada = new Scanner(System.in);
 		int quantidadeRefresco = entrada.nextInt();
 		
 		Refresco refresco = refrescoDao.buscarPorId(idRefresco);
+		
+		List<Refresco> refrescosEscolhidos = new ArrayList<>();
+		refrescosEscolhidos.add(refresco);
+		
 		refresco.setQuantidade(refresco.getQuantidade() - quantidadeRefresco);
-		precoTotal += salgado.getPreco() * quantidadeRefresco;
+		precoTotal += refresco.getPreco() * quantidadeRefresco;
 		
 		lanchonete.setReceita(lanchonete.getReceita() + precoTotal);
 		System.out.println(lanchonete.getReceita());
