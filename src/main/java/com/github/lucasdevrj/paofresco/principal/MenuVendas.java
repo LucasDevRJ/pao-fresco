@@ -38,6 +38,7 @@ public class MenuVendas {
 
 	private static void vender() {
 		EntityManager em = JPAUtil.getEntityManager();
+		em.getTransaction().begin();
 		
 		LanchoneteDao lanchoneteDao = new LanchoneteDao(em);
 		List<Lanchonete> lanchonetes = lanchoneteDao.exibirTodos();
@@ -69,6 +70,8 @@ public class MenuVendas {
 			salgado.setQuantidade(salgado.getQuantidade() - quantidadeSalgado);
 			precoTotal += salgado.getPreco() * quantidadeSalgado;
 			
+			salgadoDao.atualizar(salgado);
+			
 			System.out.println("Deseja comprar outro salgado?\ns ou n");
 			resposta = entrada.next();
 		} while (resposta.equals("s"));
@@ -77,29 +80,39 @@ public class MenuVendas {
 		List<Refresco> refrescos = refrescoDao.exibirTodos();
 		refrescos.forEach(r -> System.out.println(r));
 		
-		System.out.print("Digite o ID do refresco desejado pelo cliente: ");
-		int idRefresco = entrada.nextInt();
-		
-		System.out.print("Digite a quantidade desejada: ");
-		int quantidadeRefresco = entrada.nextInt();
-		
-		Refresco refresco = refrescoDao.buscarPorId(idRefresco);
-		
-		List<Refresco> refrescosEscolhidos = new ArrayList<>();
-		refrescosEscolhidos.add(refresco);
-		
-		refresco.setQuantidade(refresco.getQuantidade() - quantidadeRefresco);
-		precoTotal += refresco.getPreco() * quantidadeRefresco;
+		Refresco refresco;
+		do {
+			System.out.print("Digite o ID do refresco desejado pelo cliente: ");
+			int idRefresco = entrada.nextInt();
+			
+			System.out.print("Digite a quantidade desejada: ");
+			int quantidadeRefresco = entrada.nextInt();
+			
+			refresco = refrescoDao.buscarPorId(idRefresco);
+			
+			List<Refresco> refrescosEscolhidos = new ArrayList<>();
+			refrescosEscolhidos.add(refresco);
+			
+			refresco.setQuantidade(refresco.getQuantidade() - quantidadeRefresco);
+			precoTotal += refresco.getPreco() * quantidadeRefresco;
+			
+			refrescoDao.atualizar(refresco);
+			
+			System.out.println("Deseja comprar outro refresco?\ns ou n");
+			resposta = entrada.next();
+		} while (resposta.equals("s"));
 		
 		lanchonete.setReceita(lanchonete.getReceita() + precoTotal);
 		System.out.println(lanchonete.getReceita());
-		em.getTransaction().begin();
-		salgadoDao.atualizar(salgado);
-		refrescoDao.atualizar(refresco);
+		
 		lanchoneteDao.atualizar(lanchonete);
 		em.getTransaction().commit();
 		em.close();
 		
 		System.out.println("Vendido(s) com Sucesso!");
+		salgados.forEach(s -> System.out.println("Salgado: " + s.getNome()
+		+"\nPreço: R$" + s.getPreco()));
+		refrescos.forEach(r -> System.out.println("Refresco: " + r.getNome()
+		+ "\nPreço: R$ " + r.getPreco()));
 	}
 }
