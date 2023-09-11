@@ -31,7 +31,7 @@ public class MenuVendas {
 			break;
 			
 			case 2:
-				
+				MenuPrincipal.exibeMenu();
 			break;
 		}
 	}
