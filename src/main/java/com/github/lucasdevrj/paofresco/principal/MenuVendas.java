@@ -85,16 +85,12 @@ public class MenuVendas {
 			System.out.print("Digite o ID do refresco desejado pelo cliente: ");
 			int idRefresco = entrada.nextInt();
 			
-			System.out.print("Digite a quantidade desejada: ");
-			int quantidadeRefresco = entrada.nextInt();
-			
 			refresco = refrescoDao.buscarPorId(idRefresco);
 			
 			List<Refresco> refrescosEscolhidos = new ArrayList<>();
 			refrescosEscolhidos.add(refresco);
 			
-			refresco.setQuantidade(refresco.getQuantidade() - quantidadeRefresco);
-			precoTotal += refresco.getPreco() * quantidadeRefresco;
+			precoTotal += refresco.getPreco();
 			
 			refrescoDao.atualizar(refresco);
 			
@@ -103,7 +99,6 @@ public class MenuVendas {
 		} while (resposta.equals("s"));
 		
 		lanchonete.setReceita(lanchonete.getReceita() + precoTotal);
-		System.out.println(lanchonete.getReceita());
 		
 		lanchoneteDao.atualizar(lanchonete);
 		em.getTransaction().commit();
@@ -114,5 +109,6 @@ public class MenuVendas {
 		+"\nPreço: R$" + s.getPreco()));
 		refrescos.forEach(r -> System.out.println("Refresco: " + r.getNome()
 		+ "\nPreço: R$ " + r.getPreco()));
+		System.out.println("Preço Total: R$ " + precoTotal);
 	}
 }

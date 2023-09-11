@@ -17,14 +17,12 @@ public class Refresco {
 	private String descricao;
 	private Double preco;
 	private Double mililitros;
-	private Integer quantidade;
 	
-	public Refresco(String nome, String descricao, Double preco, Double mililitros, Integer quantidade) {
+	public Refresco(String nome, String descricao, Double preco, Double mililitros) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.mililitros = mililitros;
-		this.quantidade = quantidade;
 	}
 	
 	public Refresco() {
@@ -66,20 +64,11 @@ public class Refresco {
 	public Integer getId() {
 		return id;
 	}
-	
-	public Integer getQuantidade() {
-		return quantidade;
-	}
-	
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
-	
+
 	@Override
 	public String toString() {
 		return "ID: " + this.id + "|Nome: " + this.nome +
 		"|Descrição: " + this.descricao + "|Preço: " +
-		this.preco + "|Mililitros: " + this.mililitros +
-		"|Quantidade: " + this.quantidade;
+		this.preco + "|Mililitros: " + this.mililitros;
 	}
 }
