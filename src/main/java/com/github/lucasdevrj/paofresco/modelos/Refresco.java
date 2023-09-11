@@ -19,11 +19,12 @@ public class Refresco {
 	private Double mililitros;
 	private Integer quantidade;
 	
-	public Refresco(String nome, String descricao, Double preco, Double mililitros) {
+	public Refresco(String nome, String descricao, Double preco, Double mililitros, Integer quantidade) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.mililitros = mililitros;
+		this.quantidade = quantidade;
 	}
 	
 	public Refresco() {
