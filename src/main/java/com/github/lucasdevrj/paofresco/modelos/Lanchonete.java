@@ -54,6 +54,6 @@ public class Lanchonete {
 	public String toString() {
 		return "ID: " + this.id + "|Nome: " + 
 		this.nome + "|Endereço: " + this.endereco +
-		"Receita: R$ " + this.receita;
+		"|Receita: R$ " + this.receita;
 	}
 }
