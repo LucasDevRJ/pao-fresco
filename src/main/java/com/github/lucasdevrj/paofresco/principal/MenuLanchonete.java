@@ -14,6 +14,7 @@ public class MenuLanchonete {
 	private static Scanner entrada = new Scanner(System.in);
 	
 	public void exibeMenu() {
+		System.out.println("--------------------|MENU LANCHONETES|--------------------");
 		System.out.println("1 - Cadastrar Lanchonete");
 		System.out.println("2 - Exibir Todas Lanchonetes");
 		System.out.println("3 - Atualizar Lanchonete");
