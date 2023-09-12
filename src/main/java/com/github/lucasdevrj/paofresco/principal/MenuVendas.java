@@ -21,7 +21,7 @@ public class MenuVendas {
 	public static void exibeMenu() {
 		System.out.println("--------------------|MENU VENDAS|--------------------");
 		System.out.println("1 - Vender");
-		System.out.println("2 - Sair");
+		System.out.println("2 - Voltar");
 		System.out.print("Digite a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
